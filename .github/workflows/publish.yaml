@@ -10,7 +10,7 @@ jobs:
 
     env:
       REGISTRY: ghcr.io
-      REPOSITORY: ${{ github.repository }}
+      REPOSITORY: ${{ github.repository }}/plantuml-cli
 
     runs-on: ubuntu-latest
     steps:
@@ -39,7 +39,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./plantuml-cli
+          context: "{{defaultContext}}:plantuml-cli"
           file: Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
