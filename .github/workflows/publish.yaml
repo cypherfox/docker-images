@@ -7,6 +7,11 @@ on:
 
 jobs:
   plantuml-cli:
+
+    env:
+      REGISTRY: ghcr.io
+      REPOSITORY: ${{ github.repository }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
